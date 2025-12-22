@@ -237,10 +237,10 @@ class Ethna_UrlHandler
                 }
 
                 // continue in case w/ incomplete match
-                if ($path != "" && $match_length > 0 && $path{$match_length} != "/") {
+                if ($path != "" && $match_length > 0 && $path[$match_length] != "/") {
                     continue;
                 }
-                if ($is_slash && $path{strlen($path)-1} == "/") {
+                if ($is_slash && $path[strlen($path)-1] == "/") {
                     continue;
                 }
             }
@@ -337,10 +337,10 @@ class Ethna_UrlHandler
         $is_slash = false;
         $path = preg_replace('|/+|', '/', $path);
 
-        if ($path{0} == '/') {
+        if ($path[0] == '/') {
             $path = substr($path, 1);
         }
-        if ($path{strlen($path)-1} == '/') {
+        if ($path[strlen($path)-1] == '/') {
             $path = substr($path, 0, strlen($path)-1);
             $is_slash = true;
         }

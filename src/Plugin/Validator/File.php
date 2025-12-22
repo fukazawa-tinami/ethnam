@@ -157,7 +157,7 @@ class Ethna_Plugin_Validator_File extends Ethna_Plugin_Validator
 
         // name(ファイル名)の検査
         if (isset($params['name'])) {
-            $test = ($params['name']{0} == '/')
+            $test = (strpos($params['name'], '/') === 0)
                 ? preg_match($params['name'], $var['name'])
                 : (strcmp($params['name'], $var['name']) == 0);
             if ($test == false) {

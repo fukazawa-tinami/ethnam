@@ -118,15 +118,15 @@ abstract class Ethna_Plugin_Subcommand_Base
         $sopts = '';
         $opt_def = array();
         foreach ($lopts as $lopt) {
-            if ($lopt{strlen($lopt) - 2} === '=') {
-                $opt_def[$lopt{0}] = substr($lopt, 0, strlen($lopt) - 2);
-                $sopts .= $lopt{0} . '::';
-            } else if ($lopt{strlen($lopt) - 1} === '=') {
-                $opt_def[$lopt{0}] = substr($lopt, 0, strlen($lopt) - 1);
-                $sopts .= $lopt{0} . ':';
+            if ($lopt[strlen($lopt) - 2] === '=') {
+                $opt_def[$lopt[0]] = substr($lopt, 0, strlen($lopt) - 2);
+                $sopts .= $lopt[0] . '::';
+            } else if ($lopt[strlen($lopt) - 1] === '=') {
+                $opt_def[$lopt[0]] = substr($lopt, 0, strlen($lopt) - 1);
+                $sopts .= $lopt[0] . ':';
             } else {
-                $opt_def[$lopt{0}] = $lopt;
-                $sopts .= $lopt{0};
+                $opt_def[$lopt[0]] = $lopt;
+                $sopts .= $lopt[0];
             }
         }
 
@@ -144,7 +144,7 @@ abstract class Ethna_Plugin_Subcommand_Base
         //                    'bar' => array('baz'));
         $opts = array();
         foreach ($opts_args[0] as $opt) {
-            $opt[0] = $opt[0]{0} === '-' ? $opt_def[$opt[0]{2}] : $opt_def[$opt[0]{0}];
+            $opt[0] = $opt[0][0] === '-' ? $opt_def[$opt[0][2]] : $opt_def[$opt[0][0]];
             $opt[1] = $opt[1] === null ? true : $opt[1];
             if (isset($opts[$opt[0]]) === false) {
                 $opts[$opt[0]] = array($opt[1]);

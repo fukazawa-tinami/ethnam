@@ -281,7 +281,7 @@ EOD;
         //  それを $my_arg_list に入れる
         //  これは --version 判定のため
         for ($i = 0; $i < count($arg_list); $i++) {
-            if ($arg_list[$i]{0} == '-') {
+            if (strpos($arg_list[$i], '-') === 0) {
                 // assume this should be an option for myself
                 $my_arg_list[] = $arg_list[$i];
             } else {

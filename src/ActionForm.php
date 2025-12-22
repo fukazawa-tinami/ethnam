@@ -653,7 +653,7 @@ class Ethna_ActionForm
 
         for ($i = 0; $i < strlen($string); $i++) {
             /* JIS13区のみチェック */
-            $c = ord($string{$i});
+            $c = ord($string[$i]);
             if ($c < 0x80) {
                 /* ASCII */
             } else if ($c == 0x8e) {

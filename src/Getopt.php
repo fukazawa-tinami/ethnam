@@ -41,8 +41,8 @@ class Ethna_Getopt
      *         とを前提にして書かれているため、ここでは考
      *         慮していません。
      *
-     *  @return array - オプションとパラメータを含む配列、
-     *                  もしくは Ethna_Error
+     *  @return array|readPHPArgv - オプションとパラメータを含む配列、
+     *                  もしくは v
      */
     public function readPHPArgv()
     {

@@ -195,21 +195,21 @@ class Ethna_Util
             }
 
             // 2. read field
-            if ($csv{$index} == '"') {
+            if ($csv[$index] == '"') {
                 // 2A. handle quote delimited field
                 $index++;
                 while ($index < $csv_len) {
-                    if ($csv{$index} == '"') {
+                    if ($csv[$index] == '"') {
                         // handle double quote
-                        if ($csv{$index+1} == '"') {
-                            $field .= $csv{$index};
+                        if ($csv[$index+1] == '"') {
+                            $field .= $csv[$index];
                             $index += 2;
                         } else {
                             // must be end of string
-                            while ($csv{$index} != $delimiter && $index < $csv_len) {
+                            while ($csv[$index] != $delimiter && $index < $csv_len) {
                                 $index++;
                             }
-                            if ($csv{$index} == $delimiter) {
+                            if ($csv[$index] == $delimiter) {
                                 $index++;
                             }
                             break;
@@ -239,7 +239,7 @@ class Ethna_Util
 
                 // remove trailing spaces
                 $field = preg_replace("/[$space_list]+\$/S", '', $field);
-                if ($csv{$index} == $delimiter) {
+                if ($csv[$index] == $delimiter) {
                     $index++;
                 }
             }

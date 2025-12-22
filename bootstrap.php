@@ -274,7 +274,7 @@ function file_exists_ex($path, $use_include_path = true)
  */
 function is_absolute_path($path)
 {
-    if ($path{0} == DIRECTORY_SEPARATOR) {
+    if ($path[0] == DIRECTORY_SEPARATOR) {
       return true;
     }
 
