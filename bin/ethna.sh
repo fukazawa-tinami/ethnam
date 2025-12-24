@@ -21,7 +21,7 @@ cd $ETHNA_HOME
 
 while true;
 do
-    if [[ -f ".ethna" ]] && [[ -d "$PWD""/vendor/dqneo/ethnam" ]] ; then
+    if [ -f ".ethna" ] && [ -d "$PWD""/vendor/dqneo/ethnam" ] ; then
         DOT_ETHNA="$PWD""/.ethna"
         break
     fi
